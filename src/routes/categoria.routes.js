@@ -1,9 +1,9 @@
 import {Router} from 'express';
-import suscripcionController from '../controllers/suscripcion.controllers';
+import categoriaController from '../controllers/categoria.controllers';
 
 const router = Router();
 
-const {getPrueba} = suscripcionController
+const {getPrueba} = categoriaController
 
 //creamos las rutas
 router.route('/').get(getPrueba);
