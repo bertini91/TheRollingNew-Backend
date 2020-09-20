@@ -42,10 +42,11 @@ categoriaCtrl.listarCategorias = async (req, res)=>{
 
 categoriaCtrl.eliminarCategoria = async (req, res)=>{
     try {
-        console.log(req.params.id); //controlar el como se llama el parametro, aqui lo defino como id
+        console.log(req.params.id); //controlar en routes como se llama el parametro, aqui lo defino como id
         await Categoria.findByIdAndDelete(req.params.id);
+        await Noticia.deleteMany({categoria: req.params.nombre}) //Corroborar el parametro si es asi
         res.status(200).json({
-            mensaje: "La categoria fue eliminado con exito"
+            mensaje: "La categoria y sus noticias feron eliminadas con exito"
         })
     } catch (error) {
         console.log(error)
@@ -57,9 +58,10 @@ categoriaCtrl.eliminarCategoria = async (req, res)=>{
 
 categoriaCtrl.actualizarCategoria = async (req, res) =>{
     try {
-        await Noticia.findByIdAndUpdate(req.params.id, req.body);
+        await Categoria.findByIdAndUpdate(req.params.id, req.body);
+        await Noticia.updateMany({categoria: req.params.nombre})//Corroborar el parametro si es asi
         res.status(200).json({
-            mensaje: "La noticia fue actualizada con exito!"
+            mensaje: "La categoria fue actualizada con exito!"
         })
     } catch (error) {
         console.log(error)

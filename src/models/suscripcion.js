@@ -28,7 +28,7 @@ const suscripcionSchema = new Schema({
     correo: {
         type: String,
         required: true,
-        unique
+        unique: true
     }
 })
 

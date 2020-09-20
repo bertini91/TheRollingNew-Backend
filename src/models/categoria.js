@@ -4,7 +4,7 @@ const categoriaSchema = new Schema({
     nombre:{
         type: String,
         required: true,
-        unique
+        unique: true
     },
     descripcion:{
         type: String,

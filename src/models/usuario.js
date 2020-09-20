@@ -21,7 +21,7 @@ const usuarioSchema = new Schema ({
         required: true,
     },
     codPostal:{
-        type: String,
+        type: Number,
         required: true,
     },
     telefono: {
@@ -31,7 +31,7 @@ const usuarioSchema = new Schema ({
     correo: {
         type: String,
         required: true,
-        unique
+        unique: true
     },
     perfil:{
         type: String,
@@ -40,7 +40,7 @@ const usuarioSchema = new Schema ({
     usuario:{           //le agregamos un minimo y maximo???
         type: String,
         required: true,
-        unique
+        unique: true
     },
     contrasenia:{        //le agregamos un minimo y maximo???
         type: String,

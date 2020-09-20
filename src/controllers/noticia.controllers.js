@@ -2,25 +2,34 @@ import Noticia from '../models/noticia';
 
 const noticiaCtrl = {};
 
-noticiaCtrl.getPrueba = async (req, res)=>{
-    res.send("prueba desde el controlador");
+noticiaCtrl.getPrueba = (req, res)=>{
+    res.send("prueba desde el controlador de categorias")
+}
+
+noticiaCtrl.crearNoticia = async (req, res)=>{
+    console.log(req.body)
     try {
-        const {titulo, detalleCorto, autor, url, categoria, destacado, fecha} = req.body;
+        //tendre que modificar si en el front tiene otro nombre
+        const {titulo, detalleCorto, detalle, autor, url, categoria, destacado, fecha} = req.body; 
         const noticiaNueva = new Noticia({
             titulo,
             detalleCorto,
+            detalle,
             autor,
             url,
             categoria,
             destacado,
+            fecha
         });
         await noticiaNueva.save();
         res.status(201).json({
             mensaje: "Noticia almacenada con exito"
         })
     } catch (error) {
+        console.log(error);
         res.status(501).json({
-            mensaje: "Ocurrio un error en la carga"
+            mensaje: "Ocurrio un error en la carga",
+            error: error
         })
     }
 }
@@ -28,6 +37,7 @@ noticiaCtrl.getPrueba = async (req, res)=>{
 noticiaCtrl.listarNoticia = async(req, res)=>{
     try {
         const arregloNoticias = await Noticia.find();
+        
         res.status(200).json(arregloNoticias);
     } catch (error) {
         console.log(error);

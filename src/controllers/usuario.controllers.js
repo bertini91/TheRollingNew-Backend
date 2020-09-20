@@ -5,7 +5,7 @@ usuarioCtrl.getPrueba = (req, res) => {
   res.send("prueba desde el controlador");
 };
 
-usuarioCtrl.nuevoUsuario = async (req, res) => {
+usuarioCtrl.crearUsuario = async (req, res) => {
   console.log(req.body);
   try {
     const {
