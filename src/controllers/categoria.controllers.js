@@ -43,6 +43,10 @@ categoriaCtrl.listarCategorias = async (req, res)=>{
 categoriaCtrl.eliminarCategoria = async (req, res)=>{
     try {
         console.log(req.params.id); //controlar el como se llama el parametro, aqui lo defino como id
+        await Categoria.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            mensaje: "La categoria fue eliminado con exito"
+        })
     } catch (error) {
         console.log(error)
         res.status(500).json({
