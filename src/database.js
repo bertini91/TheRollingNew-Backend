@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const url= "mongodb://localhost:27017/theRollingNews";
+const url= "mongodb+srv://rollingNew:admin1234@cluster0.voakf.mongodb.net/test";
 
 mongoose.connect(url, {
     useNewUrlParser: true,
