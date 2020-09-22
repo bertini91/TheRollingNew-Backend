@@ -43,7 +43,8 @@ categoriaCtrl.listarCategorias = async (req, res) => {
 categoriaCtrl.eliminarCategoria = async (req, res) => {
   try {
     console.log(req.params.id); //controlar en routes como se llama el parametro, aqui lo defino como id //Corroborar el parametro si es asi
-    /*  await Noticia.deleteMany({categoria: req.params.nombre}) */ const cat = Categoria.findOne(
+    /*  await Noticia.deleteMany({categoria: req.params.nombre}) */ 
+    const cat = await Categoria.find(
       { _id: req.params.id },
       { categoria }
     );

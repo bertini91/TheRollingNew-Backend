@@ -25,6 +25,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, "../public")))
 
 app.use('/api/theRollingNew', noticiaRoutes, categoriaRoutes);
+app.use('/api/theRollingNew/Sesion/', usuarioRoutes)
 app.use('/api/theRollingNew/Administracion/Usuario', usuarioRoutes)
 app.use('/api/theRollingNew/Suscripcion', suscripcionRoutes);
 app.use('/api/theRollingNew/Administracion/Categoria', categoriaRoutes)

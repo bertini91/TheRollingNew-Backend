@@ -6,6 +6,7 @@ const router = Router();
 const {getPrueba, crearUsuario, listarUsuarios, eliminarUsuario, actualizarUsuario} = usuarioController;
 
 //creamos las rutas
+router.route('/Login').get(listarUsuarios);
 router.route('/').get(listarUsuarios).post(crearUsuario);
 router.route('/:id').delete(eliminarUsuario).put(actualizarUsuario);
 
