@@ -1,4 +1,4 @@
-<p align="center"><a href="" target="_blank" ><img width="200" src="./public/logo.png" alt="logo"></a></p>
+<p align="center"><a href="" target="_blank" ><img width="200" src="https://therollingtimes.netlify.app/logo.png" alt="logo"></a></p>
 
 ## Title
 The Rolling Times.
