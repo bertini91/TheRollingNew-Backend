@@ -1,7 +1,5 @@
 import mongoose, {Schema} from 'mongoose';
 
-                    //EL ESQUEMA Y NOMBRES HAY Q CONTROLAR
-
 const usuarioSchema = new Schema ({
     nombre:{
         type: String,
@@ -26,7 +24,7 @@ const usuarioSchema = new Schema ({
     },
     telefono: {
         type: String,
-        required: true,     //le ponemos la propiedad unica?
+        required: true,     
     },
     correo: {
         type: String,
@@ -37,12 +35,12 @@ const usuarioSchema = new Schema ({
         type: String,
         required: true,
     },
-    usuario:{           //le agregamos un minimo y maximo???
+    usuario:{           
         type: String,
         required: true,
         unique: true
     },
-    contrasenia:{        //le agregamos un minimo y maximo???
+    contrasenia:{        
         type: String,
         required: true,
     },

@@ -10,7 +10,6 @@ categoriaCtrl.getPrueba = (req, res) => {
 categoriaCtrl.crearCategoria = async (req, res) => {
   console.log(req.body);
   try {
-    //corroborar nombres con el front
     const { nombre, descripcion } = req.body;
     const categoriaNueva = new Categoria({
       nombre: nombre,
@@ -42,8 +41,6 @@ categoriaCtrl.listarCategorias = async (req, res) => {
 
 categoriaCtrl.eliminarCategoria = async (req, res) => {
   try {
-    console.log(req.params.id); //controlar en routes como se llama el parametro, aqui lo defino como id //Corroborar el parametro si es asi
-    /*  await Noticia.deleteMany({categoria: req.params.nombre}) */ 
     const cat = await Categoria.find(
       { _id: req.params.id },
       { categoria }
@@ -64,7 +61,7 @@ categoriaCtrl.eliminarCategoria = async (req, res) => {
 categoriaCtrl.actualizarCategoria = async (req, res) => {
   try {
     await Categoria.findByIdAndUpdate(req.params.id, req.body);
-    await Noticia.updateMany({ categoria: req.params.nombre }); //Corroborar el parametro si es asi
+    await Noticia.updateMany({ categoria: req.params.nombre });
     res.status(200).json({
       mensaje: "La categoria fue actualizada con exito!",
     });

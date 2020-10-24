@@ -20,7 +20,7 @@ const noticiaSchema = new Schema({
         maxlength:30
     },
     url:{
-        type: String, /* hay q ver si lo tratamos como array */
+        type: String,
         required: true,
     },
     categoria:{

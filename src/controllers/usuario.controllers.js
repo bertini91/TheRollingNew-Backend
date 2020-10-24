@@ -61,7 +61,7 @@ usuarioCtrl.listarUsuarios = async (req, res)=>{
 usuarioCtrl.eliminarUsuario = async(req, res)=>{
   try {
     console.log(req.params.id);
-    await Usuario.findOneAndDelete(req.params.id);
+    await Usuario.findByIdAndDelete(req.params.id);
     res.status(200).json({
       mensaje: "El usuario fue eliminado con exito"
     })

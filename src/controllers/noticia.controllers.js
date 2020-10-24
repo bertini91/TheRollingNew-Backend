@@ -9,7 +9,6 @@ noticiaCtrl.getPrueba = (req, res)=>{
 noticiaCtrl.crearNoticia = async (req, res)=>{
     console.log(req.body)
     try {
-        //tendre que modificar si en el front tiene otro nombre
         const {titulo, detalleCorto, detalle, autor, url, categoria, destacado, fecha} = req.body; 
         const noticiaNueva = new Noticia({
             titulo,
@@ -37,7 +36,6 @@ noticiaCtrl.crearNoticia = async (req, res)=>{
 noticiaCtrl.listarNoticia = async(req, res)=>{
     try {
         const arregloNoticias = await Noticia.find();
-        
         res.status(200).json(arregloNoticias);
     } catch (error) {
         console.log(error);
