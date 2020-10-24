@@ -19,8 +19,8 @@ git clone URL
 npm install
 npm start
 ```
-URL Fron-end: git@github.com:rserrano20/therollingnews.git
-URL Back-end: git@github.com:bertini91/TheRollingNew-Backend.git
+- URL Fron-end: git@github.com:rserrano20/therollingnews.git
+- URL Back-end: git@github.com:bertini91/TheRollingNew-Backend.git
 
 In the project directory, you can run:
 
