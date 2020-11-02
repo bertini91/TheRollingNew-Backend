@@ -57,17 +57,14 @@ categoriaCtrl.eliminarCategoria = async (req, res) => {
 
 categoriaCtrl.actualizarCategoria = async (req, res) => {
   try {
-    try {
-      await Noticia.updateMany(
-        { categoria: req.params.nombreViejo },
-        { $set: { categoria: req.params.nombre } }
-      );
-    } catch (error) {
-      res.status(500).json({
-        mensaje: "Ocurrio un error en la actualizacion de la noticia.",
-      });
-    }
-    
+    await Noticia.update(
+      { categoria: req.params.nombreViejo },
+      { categoria: req.params.nombre },
+      {
+        multi: false,
+        upsert: false,
+      }
+    );
     await Categoria.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json({
       mensaje: "La categoria fue actualizada con exito!",
