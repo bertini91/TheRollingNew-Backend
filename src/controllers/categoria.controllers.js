@@ -41,8 +41,7 @@ categoriaCtrl.listarCategorias = async (req, res) => {
 
 categoriaCtrl.eliminarCategoria = async (req, res) => {
   try {
-    const cat; 
-    await Categoria.findOne({ _id: req.params.id}, cat)
+    const cat = await Categoria.findOne({ _id: req.params.id });
     await Categoria.findByIdAndDelete(cat._id);
     await Noticia.deleteMany({ categoria: cat.nombre });
     res.status(200).json({
@@ -58,7 +57,10 @@ categoriaCtrl.eliminarCategoria = async (req, res) => {
 
 categoriaCtrl.actualizarCategoria = async (req, res) => {
   try {
-    await Noticia.updateMany({ categoria: req.params.nombreViejo }, {$set:{categoria: req.params.nombre}});
+    await Noticia.updateMany(
+      { categoria: req.params.nombreViejo },
+      { $set: { categoria: req.params.nombre } }
+    );
     await Categoria.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json({
       mensaje: "La categoria fue actualizada con exito!",
