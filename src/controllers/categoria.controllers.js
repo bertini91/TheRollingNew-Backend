@@ -57,8 +57,9 @@ categoriaCtrl.eliminarCategoria = async (req, res) => {
 
 categoriaCtrl.actualizarCategoria = async (req, res) => {
   try {
+    const cat = await Categoria.findOne({ _id: req.params.id });
     await Noticia.update(
-      { categoria: req.params.nombreViejo },
+      { categoria: cat.nombre },
       { categoria: req.params.nombre },
       {
         multi: false,
